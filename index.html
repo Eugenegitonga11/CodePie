@@ -126,16 +126,11 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 32px;max-width:1280px;margin:0 auto;
   }
-  .brand{display:flex;align-items:center;gap:11px;}
-  .brand-icon-chip{
-    display:flex;align-items:center;justify-content:center;
-    width:38px;height:38px;border-radius:10px;
-    background:var(--chip-bg);border:1px solid var(--line-bright);
-    flex-shrink:0;
-  }
-  .brand-icon{height:24px;width:auto;display:block;}
-  .brand-name{font-family:var(--display);font-weight:600;font-size:1.2rem;letter-spacing:.2px;color:var(--ink);}
-  .brand-name b{color:var(--blue-bright);font-weight:600;}
+  .brand{display:flex;align-items:center;}
+  .brand-logo{height:34px;width:auto;display:block;}
+  .logo-light{display:none;}
+  [data-theme="light"] .logo-dark{display:none;}
+  [data-theme="light"] .logo-light{display:block;}
 
   .nav-right{display:flex;align-items:center;gap:14px;}
   .theme-toggle{
@@ -187,8 +182,8 @@
 
   /* ---------- hero ---------- */
   .hero{
-    min-height:100vh;display:flex;align-items:center;
-    padding:140px 0 80px;position:relative;z-index:2;
+    min-height:92vh;display:flex;align-items:center;
+    padding:130px 0 56px;position:relative;z-index:2;
   }
   .hero-grid{
     display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;
@@ -280,14 +275,14 @@
   @keyframes popIn{from{opacity:0;transform:scale(.85) translateY(6px);}to{opacity:1;transform:scale(1) translateY(0);}}
 
   /* ---------- marquee logos / trust ---------- */
-  .trust{padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:2;overflow:hidden;}
+  .trust{padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:2;overflow:hidden;}
   .trust-track{display:flex;gap:64px;white-space:nowrap;animation:scroll 26s linear infinite;}
   .trust-track span{font-family:var(--mono);font-size:.95rem;color:var(--slate-dim);letter-spacing:.03em;}
   @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- section headers ---------- */
-  .sec{padding:120px 0;position:relative;z-index:2;}
-  .sec-head{max-width:640px;margin-bottom:64px;}
+  .sec{padding:72px 0;position:relative;z-index:2;}
+  .sec-head{max-width:640px;margin-bottom:44px;}
   .sec-eyebrow{
     font-family:var(--mono);font-size:.78rem;color:var(--blue-bright);
     letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;display:block;
@@ -333,7 +328,7 @@
   }
   .rail-hint{
     font-family:var(--mono);font-size:.78rem;color:var(--slate-dim);
-    display:flex;align-items:center;gap:8px;margin-top:18px;
+    display:flex;align-items:center;gap:8px;margin-top:14px;
   }
 
   /* ---------- why us ---------- */
@@ -414,7 +409,7 @@
 
   /* ---------- CTA band ---------- */
   .cta-band{
-    margin:0 32px;border-radius:24px;padding:80px 64px;
+    margin:0 32px;border-radius:24px;padding:64px 64px;
     background:var(--cta-band-bg);
     border:1px solid var(--line-bright);position:relative;overflow:hidden;
     text-align:center;
@@ -428,8 +423,8 @@
   .cta-band .hero-cta{justify-content:center;position:relative;animation:none;opacity:1;}
 
   /* ---------- footer ---------- */
-  footer{padding:80px 0 32px;position:relative;z-index:2;border-top:1px solid var(--line);}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+  footer{padding:64px 0 32px;position:relative;z-index:2;border-top:1px solid var(--line);}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
   .foot-brand .brand{margin-bottom:18px;}
   .foot-brand p{color:var(--slate);font-size:.92rem;max-width:280px;}
   .foot-col h4{font-family:var(--mono);font-size:.78rem;color:var(--slate-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;}
@@ -466,9 +461,11 @@
   }
   @media (max-width:600px){
     .wrap{padding:0 20px;}
-    .hero{padding:120px 0 60px;}
+    .hero{padding:112px 0 48px;}
+    .sec{padding:56px 0;}
+    .sec-head{margin-bottom:32px;}
     .hero-stats{gap:22px;flex-wrap:wrap;}
-    .cta-band{margin:0 16px;padding:56px 28px;}
+    .cta-band{margin:0 16px;padding:48px 28px;}
     .foot-grid{grid-template-columns:1fr;}
     .foot-bottom{flex-direction:column;gap:14px;text-align:center;}
     .build-tag{display:none;}
@@ -488,8 +485,8 @@
 <header id="header">
   <nav>
     <a href="#top" class="brand">
-      <span class="brand-icon-chip"><img src="assets/icon.png" alt="CodePie" class="brand-icon"></span>
-      <span class="brand-name">Code<b>Pie</b></span>
+      <img src="assets/logo-white.png" alt="CodePie" class="brand-logo logo-dark">
+      <img src="assets/logo.png" alt="CodePie" class="brand-logo logo-light">
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -847,7 +844,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#top" class="brand"><span class="brand-icon-chip"><img src="assets/icon.png" alt="CodePie" class="brand-icon"></span><span class="brand-name">Code<b>Pie</b></span></a>
+        <a href="#top" class="brand"><img src="assets/logo-white.png" alt="CodePie" class="brand-logo logo-dark"><img src="assets/logo.png" alt="CodePie" class="brand-logo logo-light"></a>
         <p>A Nairobi-based digital studio building websites, apps and AI tools for businesses that want to grow without the agency runaround.</p>
       </div>
       <div class="foot-col">
